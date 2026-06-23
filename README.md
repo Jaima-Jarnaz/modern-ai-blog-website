@@ -2,6 +2,24 @@
 
 A modern AI-themed blog built with **Next.js 14+ (App Router)** and **Incremental Static Regeneration (ISR)**. Articles are fetched in real time from the free [Dev.to API](https://developers.forem.com/api) — no API key required.
 
+This project was **built with [Cursor](https://cursor.com)** — an AI-powered code editor. The entire codebase was scaffolded and iterated on through natural-language prompts in Cursor Agent, rather than hand-written from scratch.
+
+## Built with Cursor
+
+Development followed a prompt-driven workflow: each instruction below was given to Cursor Agent, which generated and refined the corresponding code.
+
+| # | Prompt |
+|---|--------|
+| 1 | Build a complete AI-themed blog website using Next.js 14+ (App Router) with ISR — including a strict green color theme (`#2ecc71`), Dev.to API as the data source, four routes (`/`, `/blog`, `/blog/[id]`, `/about`), ISR revalidation intervals, `generateStaticParams()`, skeleton loaders, search/tag filtering, and the full component library specified in the prompt. |
+| 2 | Fix a runtime/build error referenced from the dev server terminal output. |
+| 3 | Update the README to document where all data comes from (Dev.to API endpoints, fields, image hosts, ISR config). |
+| 4 | Explain why `normalizePost` is required (Dev.to returns `tag_list` as an array on the list endpoint but a comma-separated string on the single-post endpoint). |
+| 5 | Move all static UI text into a central constants file (`lib/constants.ts`). |
+| 6 | Apply the constants refactor across all required pages and components. |
+| 7 | Add this section to the README — documenting the prompts used and crediting Cursor as the build tool. |
+
+> **How it works:** You describe what you want in plain English; Cursor reads the existing codebase, writes the files, runs the dev server, and fixes errors in a loop. This project is a practical example of that workflow applied to a production-style Next.js app.
+
 ## Data source
 
 All blog content comes from **Dev.to**, a developer community platform. We use their public REST API to pull AI-tagged articles written by real authors.
